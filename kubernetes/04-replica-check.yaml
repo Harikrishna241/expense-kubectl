@@ -1,0 +1,22 @@
+kind: Rplicaset
+apiversion: apps/v1
+
+metadata: 
+  name: nginx-replica
+  labels:
+    project: expense
+
+spec:
+  replicas: 2
+  selectors:
+    matchLabels: 
+      project: expense
+  template:
+    metadata:
+      labels:
+        tier: hari-nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+
