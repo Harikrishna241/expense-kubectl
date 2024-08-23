@@ -1,0 +1,8 @@
+1) First we need to create a cluster 
+2) we need to create the namespace 
+3) we need to deploy the pods 
+4) for deployment of pods we need 
+    1) images 
+    2) network 
+    3) to enahnce this we will use storage class 
+    4) to expose we need the service as load balancer 
