@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: ReplicaSet
+kind: Deployment
 metadata: 
   name: expense
   namespace: expense
@@ -13,13 +13,13 @@ spec:
   selector:
     matchLabels:
       Environment: dev
-      # project: expense
-      # module: db
+      project: expense
+      module: db
   template:
     metadata:
       Environment: dev
-      # project: expense
-      # module: db
+      project: expense
+      module: db
     spec:
       containers:
       - name: mysql
