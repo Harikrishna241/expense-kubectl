@@ -7,15 +7,14 @@ metadata:
     Environment: dev
     project: expense
     module: db
-
 spec:
   # modify replicas according to your case
   replicas: 2
   selector:
     matchLabels:
       Environment: dev
-      project: expense
-      module: db
+      #project: expense
+      #module: db
   template:
     metadata:
       Environment: dev
@@ -25,7 +24,6 @@ spec:
       containers:
       - name: mysql
         image: joindevops/mysql:v1.0
-
 ---
 apiVersion: v1
 kind: Service
