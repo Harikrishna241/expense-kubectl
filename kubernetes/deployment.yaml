@@ -1,6 +1,5 @@
 apiversion: v1
 kind: Replicaset
-
 metadata: 
   name: expense
   labels:
