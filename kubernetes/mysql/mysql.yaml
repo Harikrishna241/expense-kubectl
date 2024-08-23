@@ -13,13 +13,13 @@ spec:
   selector:
     matchLabels:
       Environment: dev
-      #project: expense
-      #module: db
+      # project: expense
+      # module: db
   template:
     metadata:
       Environment: dev
-      project: expense
-      module: db
+      # project: expense
+      # module: db
     spec:
       containers:
       - name: mysql
