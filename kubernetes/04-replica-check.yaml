@@ -10,7 +10,7 @@ spec:
   replicas: 2
   selector:
     matchLabels: 
-      project: expense
+      tier: hari-nginx
   template:
     metadata:
       labels:
