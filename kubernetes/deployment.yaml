@@ -31,8 +31,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    matchLabels:
-      tier: hari-nginx
+    tier: hari-nginx
   ports:
     - port: 80
       # By default and for convenience, the `targetPort` is set to
