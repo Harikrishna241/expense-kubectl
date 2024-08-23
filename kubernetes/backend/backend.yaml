@@ -1,7 +1,12 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: game-demo
+  name: mysql
+  namespace: expense
+  labels:
+    component: backend
+    project: expense
+    module: backend
 data:
   # property-like keys; each key maps to a simple value
  DB_HOST: mysql # mysql service name 
