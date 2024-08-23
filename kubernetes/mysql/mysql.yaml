@@ -4,7 +4,7 @@ metadata:
   name: expense
   namespace: expense
   labels:
-    Environment: dev
+    component: mysql
     project: expense
     module: db
 spec:
@@ -12,14 +12,15 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      Environment: dev
+      component: mysql
       project: expense
       module: db
   template:
     metadata:
-      Environment: dev
-      project: expense
-      module: db
+      labels:
+        component: mysql
+        project: expense
+        module: db
     spec:
       containers:
       - name: mysql
@@ -32,9 +33,9 @@ metadata:
   namespace: expense
 spec:
   selector:
-    Environment: dev
-    project: expense
-    module: db
+      component: mysql
+      project: expense
+      module: db
   ports:
     - protocol: TCP
       port: 3306
