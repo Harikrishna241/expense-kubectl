@@ -1,4 +1,4 @@
-kind: Rplicaset
+kind: Replicaset
 apiversion: apps/v1
 
 metadata: 
