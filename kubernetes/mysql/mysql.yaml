@@ -16,9 +16,9 @@ spec:
       tier: hari-nginx
   template:
     metadata:
-    Environment: dev
-    project: expense
-    module: db
+      Environment: dev
+      project: expense
+      module: db
     spec:
       containers:
       - name: mysql
