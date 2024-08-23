@@ -56,7 +56,7 @@ spec:
   selector:
       component: backend
       project: expense
-      module: bakend
+      module: backend
   ports:
     - protocol: TCP
       port: 8080
