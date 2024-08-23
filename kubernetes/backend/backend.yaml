@@ -16,7 +16,7 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: mysql
+  name: backend
   namespace: expense
   labels:
     component: backend
