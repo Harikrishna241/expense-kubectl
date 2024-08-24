@@ -3,12 +3,9 @@ kind: ConfigMap
 metadata:
   name: backend
   namespace: expense
-
 data:
-  # property-like keys; each key maps to a simple value
-  DB_HOST: mysql # mysql service name 
-
-
+  DB_HOST: mysql # mysql component service name
+  #DB_HOST: db-dev.daws78s.online
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -18,8 +15,7 @@ metadata:
   labels:
     component: backend
     project: expense
-    module: backend
-
+    module: app
 spec:
   # modify replicas according to your case
   replicas: 2
@@ -27,22 +23,19 @@ spec:
     matchLabels:
       component: backend
       project: expense
-      module: backend
+      module: app
   template:
     metadata:
       labels:
         component: backend
         project: expense
-        module: backend
+        module: app
     spec:
       containers:
       - name: backend
         image: joindevops/backend:v1.0
-        envFrom:
-        - configMapRef:
-            name: backend # The ConfigMap this value comes from.
-              
-    
+      envFrom:
+      - name: backend
 ---
 apiVersion: v1
 kind: Service
@@ -53,7 +46,7 @@ spec:
   selector:
       component: backend
       project: expense
-      module: backend
+      module: app
   ports:
     - protocol: TCP
       port: 8080
