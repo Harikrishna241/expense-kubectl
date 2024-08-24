@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: backend
   namespace: expense
-  
+
 data:
   # property-like keys; each key maps to a simple value
   DB_HOST: mysql # mysql service name 
