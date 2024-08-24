@@ -4,7 +4,7 @@ metadata:
   name: frontend
 data:
   nginx.conf: |
-   user www-data;
+    user www-data;
     worker_processes 4;
     pid /var/run/nginx.pid;
 
@@ -88,7 +88,6 @@ data:
         }
 
         }
-
     }
 ---
 apiVersion: apps/v1
