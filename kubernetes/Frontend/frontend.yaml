@@ -118,9 +118,6 @@ spec:
       containers:
       - name: frontend
         image: joindevops/frontend:v1.0
-        # envFrom:
-        # - configMapRef:
-        #     name: frontend
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
