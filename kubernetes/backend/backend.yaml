@@ -9,8 +9,8 @@ metadata:
     module: backend
 data:
   # property-like keys; each key maps to a simple value
- DB_HOST: mysql # mysql service name 
-  
+  DB_HOST: mysql # mysql service name 
+
 
 ---
 apiVersion: apps/v1
