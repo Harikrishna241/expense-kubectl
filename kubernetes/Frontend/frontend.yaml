@@ -126,12 +126,12 @@ spec:
           mountPath: /etc/nginx/nginx.conf
           subpath: nginx.conf
           readOnly: true
-    volumes:
-    - name: nginx-index-file
-      configMap:
-      - name: nginx-conf
-        key: nginx.conf
-        path: nginx.conf
+      volumes:
+      - name: nginx-index-file
+        configMap:
+        - name: nginx-conf
+          key: nginx.conf
+          path: nginx.conf
 ---
 apiVersion: v1
 kind: Service
