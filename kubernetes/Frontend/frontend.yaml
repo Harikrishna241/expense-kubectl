@@ -127,7 +127,7 @@ spec:
           subpath: nginx.conf
           readOnly: true
       volumes:
-      - name: nginx-index-file
+      - name: nginx-conf
         configMap:
           name: frontend
           items:
