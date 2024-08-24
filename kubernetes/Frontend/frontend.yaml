@@ -135,9 +135,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
+  name: frontend
   namespace: expense
 spec:
+  type: LoadBalancer
   selector:
       component: frontend
       project: expense
@@ -146,5 +147,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 8080
-      #nodeport:
-  type: LoadBalancer
+  
