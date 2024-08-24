@@ -3,10 +3,7 @@ kind: ConfigMap
 metadata:
   name: backend
   namespace: expense
-  labels:
-    component: backend
-    project: expense
-    module: backend
+  
 data:
   # property-like keys; each key maps to a simple value
   DB_HOST: mysql # mysql service name 
