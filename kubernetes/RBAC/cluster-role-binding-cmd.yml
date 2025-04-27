@@ -1,0 +1,12 @@
+kubectl create rolebinding
+Grants a Role or ClusterRole within a specific namespace. Examples:
+
+Within the namespace "acme", grant the permissions in the "admin" ClusterRole to a user named "bob":
+
+kubectl create rolebinding bob-admin-binding --clusterrole=admin --user=bob --namespace=acme
+Within the namespace "acme", grant the permissions in the "view" ClusterRole to the service account in the namespace "acme" named "myapp":
+
+kubectl create rolebinding myapp-view-binding --clusterrole=view --serviceaccount=acme:myapp --namespace=acme
+Within the namespace "acme", grant the permissions in the "view" ClusterRole to a service account in the namespace "myappnamespace" named "myapp":
+
+kubectl create rolebinding myappnamespace-myapp-view-binding 

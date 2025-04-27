@@ -1,0 +1,12 @@
+kubectl create clusterrolebinding
+Grants a ClusterRole across the entire cluster (all namespaces). Examples:
+
+Across the entire cluster, grant the permissions in the "cluster-admin" ClusterRole to a user named "root":
+
+kubectl create clusterrolebinding root-cluster-admin-binding --clusterrole=cluster-admin --user=root
+Across the entire cluster, grant the permissions in the "system:node-proxier" ClusterRole to a user named "system:kube-proxy":
+
+kubectl create clusterrolebinding kube-proxy-binding --clusterrole=system:node-proxier --user=system:kube-proxy
+Across the entire cluster, grant the permissions in the "view" ClusterRole to a service account named "myapp" in the namespace "acme":
+
+kubectl create clusterrolebinding myapp-view-binding --clusterrole=

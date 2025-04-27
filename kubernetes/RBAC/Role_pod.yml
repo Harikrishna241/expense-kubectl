@@ -1,0 +1,56 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: pod-reader
+rules:
+- apiGroups: [""] # "" indicates the core API group
+  resources: ["pods"]
+  verbs: ["get", "watch", "list"]
+---
+# pods is the namespaced resource for Pod resources, and log is a subresource of pods.
+# To represent this in an RBAC role, use a slash (/) to delimit the resource and subresource. 
+# To allow a subject to read pods and also access the log subresource for each of those Pods, you write:
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: pod-and-pod-logs-reader
+rules:
+- apiGroups: [""]
+  resources: ["pods", "pods/log"]
+  verbs: ["get", "list"]
+
+# You can also refer to resources by name for certain requests through the resourceNames list.
+#  When specified, requests can be restricted to individual instances of a resource. 
+# Here is an example that restricts its subject to only get or update a ConfigMap named my-configmap:
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: configmap-updater
+rules:
+- apiGroups: [""]
+  #
+  # at the HTTP level, the name of the resource for accessing ConfigMap
+  # objects is "configmaps"
+  resources: ["configmaps"]
+  resourceNames: ["my-configmap"]
+  verbs: ["update", "get"]
+---
+# Rather than referring to individual resources, apiGroups, and verbs, 
+# you can use the wildcard * symbol to refer to all such objects.
+# For nonResourceURLs, you can use the wildcard * as a suffix glob match.
+# For resourceNames, an empty set means that everything is allowed. 
+# Here is an example that allows access to perform any current and future action on all current and future resources in the example.com API group.
+# This is similar to the built-in cluster-admin role.
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: example.com-superuser # DO NOT USE THIS ROLE, IT IS JUST AN EXAMPLE
+rules:
+- apiGroups: ["example.com"]
+  resources: ["*"]
+  verbs: ["*"]

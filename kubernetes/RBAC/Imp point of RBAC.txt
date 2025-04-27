@@ -1,0 +1,20 @@
+A Role always sets permissions within a particular namespace; 
+when you create a Role, you have to specify the namespace it belongs in.
+
+Cluster:
+---------
+cluster-scoped resources (like nodes)
+
+non-resource endpoints (like /healthz)
+
+namespaced resources (like Pods), across all namespaces
+
+ClusterRoles have several uses. You can use a ClusterRole to:
+
+define permissions on namespaced resources and be granted access within individual namespace(s)
+define permissions on namespaced resources and be granted access across all namespaces
+define permissions on cluster-scoped resources
+
+After you create a binding, you cannot change the Role or ClusterRole that it refers to. 
+If you try to change a binding's roleRef, you get a validation error.
+
